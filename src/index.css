@@ -53,6 +53,13 @@
   box-sizing: border-box;
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   font-family: 'Press Start 2P', cursive;
   background-color: var(--gameboy-background);
@@ -536,6 +543,22 @@ button:focus-visible {
 .content {
   height: calc(100% - 30px);
   overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--gameboy-green) var(--gameboy-dark-green);
+}
+
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: var(--gameboy-dark-green);
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: var(--gameboy-green);
+  border-radius: 4px;
+  border: 2px solid var(--gameboy-dark-green);
 }
 
 .portfolio-title {
@@ -635,18 +658,6 @@ button:focus-visible {
   }
   100% {
     box-shadow: 0 0 5px var(--gameboy-green);
-  }
-}
-
-@keyframes blink {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
   }
 }
 
