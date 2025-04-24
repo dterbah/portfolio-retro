@@ -1,4 +1,3 @@
-import React from 'react';
 import Snake from '../games/Snake';
 import Pong from '../games/Pong';
 import CatchTheDot from '../games/CatchTheDot';

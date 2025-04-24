@@ -1,4 +1,3 @@
-import React from 'react';
 import professionalProjectsData from '../../data/professionalProjects.json';
 
 const ProfessionalProjects = () => {

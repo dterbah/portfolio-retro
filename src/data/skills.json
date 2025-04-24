@@ -1,37 +1,108 @@
 {
   "categories": [
     {
-      "name": "Frontend",
+      "name": "Langages de Programmation",
       "skills": [
-        { "name": "React", "level": 5 },
-        { "name": "TypeScript", "level": 5 },
-        { "name": "VueJS", "level": 4 },
-        { "name": "Angular", "level": 3 }
+        {
+          "name": "TypeScript/JavaScript",
+          "level": 5,
+          "description": "Développement front-end et back-end, React, Node.js"
+        },
+        {
+          "name": "Python",
+          "level": 3,
+          "description": "Data Science, Django, FastAPI"
+        },
+        {
+          "name": "Java",
+          "level": 4,
+          "description": "Spring Boot, Applications d'entreprise"
+        },
+        {
+          "name": "Golang",
+          "level": 4,
+          "description": "Gin, Echo, Fiber"
+        }
       ]
     },
     {
-      "name": "Backend",
+      "name": "Front-end",
       "skills": [
-        { "name": "Go", "level": 5 },
-        { "name": "Python", "level": 4 },
-        { "name": "Node.js", "level": 4 },
-        { "name": "Java", "level": 3 },
-        { "name": "C", "level": 3 }
+        {
+          "name": "React",
+          "level": 5,
+          "description": "Hooks, Context, Redux, Next.js"
+        },
+        {
+          "name": "Angular",
+          "level": 4,
+          "description": "Services, Modules, RxJS"
+        },
+        {
+          "name": "CSS/SASS",
+          "level": 4,
+          "description": "Responsive Design, Animations, Grid/Flexbox"
+        }
+      ]
+    },
+    {
+      "name": "Back-end",
+      "skills": [
+        {
+          "name": "Node.js",
+          "level": 4,
+          "description": "Express, NestJS, API REST"
+        },
+        {
+          "name": "Spring Boot",
+          "level": 4,
+          "description": "Microservices, JPA, Security"
+        },
+        {
+          "name": "GraphQL",
+          "level": 3,
+          "description": "Apollo, Type-GraphQL"
+        }
+      ]
+    },
+    {
+      "name": "DevOps & Cloud",
+      "skills": [
+        {
+          "name": "Docker",
+          "level": 4,
+          "description": "Conteneurisation, Docker Compose"
+        },
+        {
+          "name": "AWS",
+          "level": 3,
+          "description": "EC2, S3, Lambda, RDS"
+        },
+        {
+          "name": "CI/CD",
+          "level": 4,
+          "description": "GitHub Actions, Jenkins"
+        }
       ]
     },
     {
       "name": "Base de données",
       "skills": [
-        { "name": "PostgreSQL", "level": 4 },
-        { "name": "MongoDB", "level": 3 }
-      ]
-    },
-    {
-      "name": "DevOps",
-      "skills": [
-        { "name": "CI/CD", "level": 4 },
-        { "name": "Docker", "level": 3 },
-        { "name": "Kubernetes", "level": 2 }
+        {
+          "name": "PostgreSQL",
+          "level": 4,
+          "description": "Optimisation, Indexation"
+        },
+        {
+          "name": "MongoDB",
+          "level": 3,
+          "description": "Agrégations, Schémas"
+        },
+        {
+          "name": "Redis",
+          "level": 3,
+          "description": "Cache, Pub/Sub"
+        }
       ]
     }
   ]
