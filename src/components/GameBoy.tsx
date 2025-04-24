@@ -6,6 +6,7 @@ import Skills from './sections/Skills';
 import Games from './sections/Games';
 import Contact from './sections/Contact';
 import Quests from './sections/Quests';
+import Career from './sections/Career';
 
 interface Quest {
   id: string;
@@ -56,6 +57,7 @@ const GameBoy = () => {
     { id: 'pro', label: 'Projets Professionnels' },
     { id: 'perso', label: 'Projets Personnels' },
     { id: 'skills', label: 'Compétences' },
+    { id: 'career', label: 'Parcours' },
     { id: 'games', label: 'Mini-Jeux' },
     { id: 'contact', label: 'Contact' }
   ];
@@ -296,6 +298,8 @@ const GameBoy = () => {
                 return <PersonalProjects />;
               case 'skills':
                 return <Skills />;
+              case 'career':
+                return <Career onBack={() => setCurrentSection('')} />;
               case 'games':
                 return <Games currentGame="" onBack={() => setCurrentSection('games')} />;
               case 'snake':

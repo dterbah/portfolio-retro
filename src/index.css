@@ -1121,3 +1121,129 @@ button:focus-visible {
     box-shadow: 0 0 5px var(--gameboy-green);
   }
 }
+
+/* Styles pour les sections Education et Experience */
+.education-section,
+.experience-section {
+  padding: 1rem;
+  color: var(--gameboy-green);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--gameboy-green);
+  padding-bottom: 0.5rem;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.back-button {
+  background: none;
+  border: 2px solid var(--gameboy-green);
+  color: var(--gameboy-green);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: var(--gameboy-green);
+  color: var(--gameboy-bg);
+}
+
+.education-item,
+.experience-item {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 2px solid var(--gameboy-green);
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.education-item h3,
+.experience-item h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.education-period,
+.experience-period,
+.education-company,
+.experience-company {
+  font-size: 0.9rem;
+  margin: 0.3rem 0;
+  opacity: 0.8;
+}
+
+.experience-tasks {
+  list-style-type: none;
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+.experience-tasks li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.experience-tasks li::before {
+  content: '>';
+  position: absolute;
+  left: -0.5rem;
+  color: var(--gameboy-green);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styles pour la section Career */
+.career-section {
+  padding: 1rem;
+  color: var(--gameboy-green);
+  height: 100%;
+  overflow-y: auto;
+}
+
+.career-subtitle {
+  font-size: 1.2rem;
+  color: var(--gameboy-green);
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--gameboy-green);
+  opacity: 0.9;
+}
+
+.career-section .experience-item,
+.career-section .education-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 2px solid var(--gameboy-green);
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+  background-color: var(--gameboy-dark-green);
+}
+
+.career-section .experience-item:hover,
+.career-section .education-item:hover {
+  transform: translateX(5px);
+  transition: transform 0.3s ease;
+}

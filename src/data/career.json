@@ -1,0 +1,55 @@
+{
+  "experiences": [
+    {
+      "title": "Software Engineer",
+      "company": "HEVA",
+      "description": "Traitement de la donnée de santé",
+      "period": "Septembre 2023 - aujourd'hui",
+      "tasks": [
+        "Création de dashboards graphiques d'études médicales",
+        "Mise en place d'un SaaS visant à optimiser les coûts de traitements médicaux",
+        "Création d'une application de prédiction de dépenses médicales"
+      ]
+    },
+    {
+      "title": "Développeur FullStack",
+      "company": "Gutenberg Technology",
+      "description": "Edition de livres numériques",
+      "period": "Septembre 2022 - Septembre 2023",
+      "tasks": [
+        "Optimisation du stockage des projets utilisateurs",
+        "Migration de l'application de l'AngularJS à Angular",
+        "Création d'une fonctionnalité de tagging des projets",
+        "Participation à la conception d'architectures logicielles"
+      ]
+    },
+    {
+      "title": "Apprenti ingénieur R&D",
+      "company": "Ciril GROUP",
+      "description": "Editeur de logiciels et un hebergeur cloud",
+      "period": "Septembre 2019 - Septembre 2022",
+      "tasks": [
+        "Développement d'un système de logging",
+        "Développement d'un système de monitoring pour les applications clientes",
+        "Création d'un framework de tests End-To-End"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "INSA de Lyon",
+      "degree": "Diplôme d'ingénieur en informatique",
+      "period": "2019 - 2022"
+    },
+    {
+      "school": "Aalto University, Helsinki, Finlande",
+      "degree": "Semestre Erasmus",
+      "period": "Septembre 2021 - Décembre 2021"
+    },
+    {
+      "school": "IUT Fontainebleau",
+      "degree": "DUT Informatique, mention très bien",
+      "period": "2017 - 2019"
+    }
+  ]
+} 
