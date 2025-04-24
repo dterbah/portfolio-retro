@@ -1,0 +1,142 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.section {
+  padding: 10px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.section h2 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.project {
+  border: 2px solid var(--gameboy-green);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.project h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.project-item {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid var(--gameboy-green);
+  border-radius: 3px;
+}
+
+.project-item h4 {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.project-item p {
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.skill-tag {
+  font-size: 8px;
+  padding: 2px 5px;
+  background-color: var(--gameboy-green);
+  color: var(--gameboy-dark-green);
+  border-radius: 3px;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid var(--gameboy-green);
+  border-radius: 3px;
+}
+
+.skill-item span {
+  font-size: 12px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.contact-info p {
+  font-size: 12px;
+  text-align: center;
+}
