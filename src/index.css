@@ -1,4 +1,5 @@
 :root {
+  /* Mode normal */
   --gameboy-green: #9bbc0f;
   --gameboy-dark-green: #0f380f;
   --gameboy-light-green: #8bac0f;
@@ -20,6 +21,30 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme="high-contrast"] {
+  --gameboy-green: #00ff00;
+  --gameboy-dark-green: #003300;
+  --gameboy-light-green: #00ff00;
+  --gameboy-screen: #003300;
+  --gameboy-border: #d3d3d3;
+  --gameboy-button: #b8b8b8;
+  --gameboy-button-hover: #00ff00;
+  --gameboy-text: #003300;
+  --gameboy-background: #f0f0f0;
+}
+
+:root[data-theme="low-contrast"] {
+  --gameboy-green: #7a8c0f;
+  --gameboy-dark-green: #1a2a1a;
+  --gameboy-light-green: #6a7c0f;
+  --gameboy-screen: #1a2a1a;
+  --gameboy-border: #c3c3c3;
+  --gameboy-button: #a8a8a8;
+  --gameboy-button-hover: #7a8c0f;
+  --gameboy-text: #1a2a1a;
+  --gameboy-background: #f0f0f0;
 }
 
 * {
@@ -623,4 +648,198 @@ button:focus-visible {
   100% {
     opacity: 1;
   }
+}
+
+.contrast-button {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--gameboy-button);
+  border: 2px solid #2d2d2d;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #2d2d2d;
+  z-index: 2;
+}
+
+.contrast-button:hover {
+  background-color: var(--gameboy-button-hover);
+  color: var(--gameboy-dark-green);
+}
+
+.contrast-icon {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(45deg, var(--gameboy-green) 50%, var(--gameboy-dark-green) 50%);
+  border-radius: 50%;
+  border: 2px solid var(--gameboy-dark-green);
+}
+
+.quest-button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: var(--gameboy-button);
+  border: 2px solid #2d2d2d;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #2d2d2d;
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.quest-button:hover {
+  background-color: var(--gameboy-button-hover);
+  color: var(--gameboy-dark-green);
+  transform: translateX(-50%) scale(1.1);
+}
+
+.quest-icon {
+  width: 20px;
+  height: 20px;
+  background-color: var(--gameboy-green);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--gameboy-dark-green);
+  font-size: 14px;
+}
+
+.quest-item {
+  border: 2px solid var(--gameboy-green);
+  padding: 15px;
+  border-radius: 5px;
+  background-color: var(--gameboy-dark-green);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.quest-item.completed {
+  border-color: var(--gameboy-light-green);
+  background-color: var(--gameboy-dark-green);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px var(--gameboy-green);
+}
+
+.quest-item.completed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent,
+    var(--gameboy-green) 20%,
+    var(--gameboy-green) 80%,
+    transparent
+  );
+  opacity: 0.3;
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.quest-info {
+  flex: 1;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quest-title {
+  font-size: 14px;
+  color: var(--gameboy-green);
+  margin-bottom: 8px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.quest-description {
+  font-size: 12px;
+  color: var(--gameboy-green);
+  opacity: 0.8;
+  line-height: 1.2;
+}
+
+.quest-status {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--gameboy-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: var(--gameboy-green);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.quest-status.completed {
+  background-color: var(--gameboy-green);
+  color: var(--gameboy-dark-green);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--gameboy-green);
+}
+
+.quest-item.completed .quest-title {
+  color: var(--gameboy-light-green);
+  text-shadow: 0 0 5px var(--gameboy-green);
+}
+
+.quest-item.completed .quest-description {
+  color: var(--gameboy-light-green);
+  opacity: 1;
+  text-shadow: 0 0 3px var(--gameboy-green);
+}
+
+.quest-section {
+  padding: 15px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.quest-section h2 {
+  font-size: 18px;
+  color: var(--gameboy-green);
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 0 5px var(--gameboy-green);
+}
+
+.quest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }

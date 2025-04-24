@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 import '../index.css';
 
+interface Quest {
+  id: string;
+  title: string;
+  description: string;
+  completed: boolean;
+}
+
 const GameBoy = () => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -9,6 +16,35 @@ const GameBoy = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [batteryLevel, setBatteryLevel] = useState(100);
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [contrastMode, setContrastMode] = useState<'normal' | 'high-contrast' | 'low-contrast'>('normal');
+  const [timeSpent, setTimeSpent] = useState(0);
+  const [visitedSections, setVisitedSections] = useState<string[]>([]);
+  const [quests, setQuests] = useState<Quest[]>([
+    {
+      id: 'visit-skills',
+      title: 'Explorateur de Compétences',
+      description: 'Visite la section Compétences',
+      completed: false
+    },
+    {
+      id: 'time-spent',
+      title: 'Visiteur Assidu',
+      description: 'Passe 10 secondes sur le portfolio',
+      completed: false
+    },
+    {
+      id: 'visit-all',
+      title: 'Explorateur Complet',
+      description: 'Visite toutes les sections du portfolio',
+      completed: false
+    },
+    {
+      id: 'change-contrast',
+      title: 'Maître des Couleurs',
+      description: 'Teste tous les modes de contraste',
+      completed: false
+    }
+  ]);
 
   const menuItems = [
     { id: 'pro', label: 'Projets Professionnels' },
@@ -16,6 +52,10 @@ const GameBoy = () => {
     { id: 'skills', label: 'Compétences' },
     { id: 'contact', label: 'Contact' }
   ];
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', contrastMode);
+  }, [contrastMode]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -50,6 +90,89 @@ const GameBoy = () => {
     return () => clearInterval(batteryTimer);
   }, []);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      if (!loading && isPowered) {
+        setTimeSpent(prev => prev + 1);
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [loading, isPowered]);
+
+  useEffect(() => {
+    if (currentSection && !visitedSections.includes(currentSection)) {
+      setVisitedSections(prev => [...prev, currentSection]);
+    }
+  }, [currentSection]);
+
+  useEffect(() => {
+    const checkQuests = () => {
+      setQuests(prevQuests => 
+        prevQuests.map(quest => {
+          let shouldComplete = false;
+
+          switch (quest.id) {
+            case 'visit-skills':
+              shouldComplete = visitedSections.includes('skills');
+              break;
+            case 'time-spent':
+              shouldComplete = timeSpent >= 10;
+              break;
+            case 'visit-all':
+              shouldComplete = visitedSections.length >= 4;
+              break;
+            case 'change-contrast':
+              shouldComplete = contrastMode === 'low-contrast';
+              break;
+          }
+
+          if (!quest.completed && shouldComplete) {
+            console.log(`Quest ${quest.id} completed!`);
+            return { ...quest, completed: true };
+          }
+          return quest;
+        })
+      );
+    };
+
+    checkQuests();
+  }, [timeSpent, visitedSections, contrastMode]);
+
+  useEffect(() => {
+    const savedQuests = localStorage.getItem('quests');
+    if (savedQuests) {
+      const parsedQuests = JSON.parse(savedQuests);
+      setQuests(parsedQuests);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('quests', JSON.stringify(quests));
+  }, [quests]);
+
+  useEffect(() => {
+    const savedTime = localStorage.getItem('timeSpent');
+    if (savedTime) {
+      setTimeSpent(parseInt(savedTime));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('timeSpent', timeSpent.toString());
+  }, [timeSpent]);
+
+  useEffect(() => {
+    const savedSections = localStorage.getItem('visitedSections');
+    if (savedSections) {
+      setVisitedSections(JSON.parse(savedSections));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('visitedSections', JSON.stringify(visitedSections));
+  }, [visitedSections]);
+
   const handlePowerToggle = () => {
     setIsPowered(!isPowered);
     if (isPowered) {
@@ -79,6 +202,13 @@ const GameBoy = () => {
         }
         break;
     }
+  };
+
+  const handleContrastChange = () => {
+    const modes: ('normal' | 'high-contrast' | 'low-contrast')[] = ['normal', 'high-contrast', 'low-contrast'];
+    const currentIndex = modes.indexOf(contrastMode);
+    const nextIndex = (currentIndex + 1) % modes.length;
+    setContrastMode(modes[nextIndex]);
   };
 
   const formatTime = (date: Date) => {
@@ -114,6 +244,30 @@ const GameBoy = () => {
     );
   };
 
+  const renderQuests = () => {
+    const completedQuests = quests.filter(quest => quest.completed).length;
+    const totalQuests = quests.length;
+
+    return (
+      <div className="quest-section">
+        <h2>Quêtes ({completedQuests}/{totalQuests})</h2>
+        <div className="quest-list">
+          {quests.map(quest => (
+            <div key={quest.id} className={`quest-item ${quest.completed ? 'completed' : ''}`}>
+              <div className="quest-info">
+                <div className="quest-title">{quest.title}</div>
+                <div className="quest-description">{quest.description}</div>
+              </div>
+              <div className={`quest-status ${quest.completed ? 'completed' : ''}`}>
+                {quest.completed ? '✓' : '○'}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   const renderSection = () => {
     if (!isPowered) {
       return (
@@ -129,6 +283,10 @@ const GameBoy = () => {
         <div className="content">
           <div className="portfolio-title">PORTFOLIO</div>
           {(() => {
+            if (currentSection === 'quests') {
+              return renderQuests();
+            }
+
             if (currentSection === '') {
               return (
                 <div className="menu">
@@ -430,6 +588,12 @@ const GameBoy = () => {
         <div className="power-led" />
         <span className="power-text">POWER</span>
         <div className="power-button" onClick={handlePowerToggle} />
+      </div>
+      <div className="contrast-button" onClick={handleContrastChange}>
+        <div className="contrast-icon" />
+      </div>
+      <div className="quest-button" onClick={() => setCurrentSection('quests')}>
+        <div className="quest-icon">!</div>
       </div>
       <div className="screen">
         {loading ? (
