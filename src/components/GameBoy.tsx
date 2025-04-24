@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import '../index.css';
+import Snake from './games/Snake';
+import Pong from './games/Pong';
+import CatchTheDot from './games/CatchTheDot';
 
 interface Quest {
   id: string;
@@ -867,12 +870,12 @@ const GameBoy = () => {
                         </button>
                       </div>
                       <div className="game-item">
-                        <h3>Space Invaders</h3>
-                        <p>Défends la Terre contre les aliens. Utilise ←→ pour te déplacer et A pour tirer.</p>
+                        <h3>Catch the Dot</h3>
+                        <p>Attrape le point qui apparaît à l'écran avant que le temps ne soit écoulé.</p>
                         <div className="game-controls">
-                          <span>←→ A</span>
+                          <span>↑↓←→</span>
                         </div>
-                        <button className="game-button" onClick={() => setCurrentSection('space-invaders')}>
+                        <button className="game-button" onClick={() => setCurrentSection('catch-the-dot')}>
                           Jouer
                         </button>
                       </div>
@@ -880,135 +883,11 @@ const GameBoy = () => {
                   </div>
                 );
               case 'snake':
-                return (
-                  <div className="section">
-                    <h2>Snake</h2>
-                    <div className="game-container">
-                      <div className="game-score">Score: {snakeScore}</div>
-                      <div className="game-board">
-                        {snake.map((segment, index) => (
-                          <div
-                            key={index}
-                            className="snake-segment"
-                            style={{
-                              left: `${segment.x * 5}%`,
-                              top: `${segment.y * 5}%`,
-                              width: '5%',
-                              height: '5%'
-                            }}
-                          />
-                        ))}
-                        <div
-                          className="snake-food"
-                          style={{
-                            left: `${food.x * 5}%`,
-                            top: `${food.y * 5}%`,
-                            width: '5%',
-                            height: '5%'
-                          }}
-                        />
-                        {gameOver && (
-                          <div className="game-over">
-                            <div className="game-over-text">Game Over!</div>
-                            <button className="game-button" onClick={resetSnakeGame}>
-                              Rejouer
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                      <div className="game-controls">
-                        <span>↑↓←→</span>
-                        <span className="game-controls-separator">ou</span>
-                        <span>Clavier</span>
-                      </div>
-                      <button className="game-button" onClick={() => {
-                        setCurrentSection('games');
-                        resetSnakeGame();
-                      }}>
-                        Retour
-                      </button>
-                    </div>
-                  </div>
-                );
+                return <Snake onBack={() => setCurrentSection('games')} />;
               case 'pong':
-                return (
-                  <div className="section">
-                    <h2>Pong</h2>
-                    <div className="game-container">
-                      <div className="game-score">
-                        <span>Joueur: {pongState.score1}</span>
-                        <span>IA: {pongState.score2}</span>
-                      </div>
-                      <div className="game-board">
-                        <div
-                          className="pong-paddle"
-                          style={{
-                            left: '0%',
-                            top: `${pongState.paddle1Y}%`,
-                            width: '5%',
-                            height: '20%'
-                          }}
-                        />
-                        <div
-                          className="pong-paddle"
-                          style={{
-                            right: '0%',
-                            top: `${pongState.paddle2Y}%`,
-                            width: '5%',
-                            height: '20%'
-                          }}
-                        />
-                        <div
-                          className="pong-ball"
-                          style={{
-                            left: `${pongState.ballX}%`,
-                            top: `${pongState.ballY}%`,
-                            width: '5%',
-                            height: '5%'
-                          }}
-                        />
-                        {pongState.gameOver && (
-                          <div className="game-over">
-                            <div className="game-over-text">
-                              {pongState.score1 > pongState.score2 ? 'Vous avez gagné!' : 'L\'IA a gagné!'}
-                            </div>
-                            <button className="game-button" onClick={resetPongGame}>
-                              Rejouer
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                      <div className="game-controls">
-                        <div className="player-controls">
-                          <span>Contrôles: ↑↓</span>
-                          <span className="game-controls-separator">ou</span>
-                          <span>Clavier</span>
-                        </div>
-                      </div>
-                      <button className="game-button" onClick={() => {
-                        setCurrentSection('games');
-                        resetPongGame();
-                      }}>
-                        Retour
-                      </button>
-                    </div>
-                  </div>
-                );
-              case 'space-invaders':
-                return (
-                  <div className="section">
-                    <h2>Space Invaders</h2>
-                    <div className="game-container">
-                      <div className="game-score">Score: 0</div>
-                      <div className="game-board">
-                        {/* Le jeu sera implémenté ici */}
-                      </div>
-                      <button className="game-button" onClick={() => setCurrentSection('games')}>
-                        Retour
-                      </button>
-                    </div>
-                  </div>
-                );
+                return <Pong onBack={() => setCurrentSection('games')} />;
+              case 'catch-the-dot':
+                return <CatchTheDot onBack={() => setCurrentSection('games')} />;
               case 'contact':
                 return (
                   <div className="section">

@@ -1054,3 +1054,33 @@ button:focus-visible {
   font-size: 12px;
   color: var(--gameboy-green);
 }
+
+.catch-dot-player {
+  position: absolute;
+  background-color: var(--gameboy-green);
+  border-radius: 50%;
+  transition: all 0.1s linear;
+  box-shadow: 0 0 10px var(--gameboy-green);
+}
+
+.catch-dot-target {
+  position: absolute;
+  background-color: var(--gameboy-green);
+  border-radius: 50%;
+  animation: target-pulse 1s infinite;
+}
+
+@keyframes target-pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px var(--gameboy-green);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px var(--gameboy-green);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px var(--gameboy-green);
+  }
+}
