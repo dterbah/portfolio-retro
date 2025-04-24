@@ -1,54 +1,59 @@
-# React + TypeScript + Vite
+# Retro GameBoy Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A retro-styled portfolio website inspired by the classic GameBoy console. This project combines the nostalgia of 90s gaming with modern web development to create a unique and interactive way to showcase professional experience and projects.
 
-Currently, two official plugins are available:
+## 🌟 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **GameBoy-inspired UI**: Complete with power button, contrast controls, and classic GameBoy styling
+- **Interactive Mini-Games**: Play classic games like Snake, Pong, and Catch the Dot
+- **Quest System**: Complete various quests as you explore the portfolio
+- **Responsive Design**: Works on both desktop and mobile devices
+- **Dark/Light Mode**: Adjustable contrast settings for better visibility
+- **Battery Life Simulation**: Adds to the authentic GameBoy experience
 
-## Expanding the ESLint configuration
+## 🎮 Mini-Games
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Snake**: Classic snake game with arrow key controls
+- **Pong**: The first commercial video game, controlled with up/down arrows
+- **Catch the Dot**: A fast-paced game where you need to catch the moving dot
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Technologies Used
+
+- React
+- TypeScript
+- CSS3
+- Vite
+- Netlify (Deployment)
+
+## 🚀 Live Demo
+
+Check out the live version of the portfolio: [Retro GameBoy Portfolio](https://dterbah-portfolio-retro.netlify.app/)
+
+## 🎯 Getting Started
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/portfolio-retro.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+cd portfolio-retro
+npm install
 ```
+
+3. Start the development server
+
+```bash
+npm run dev
+```
+
+## 📝 License
+
+This project is open source and available under the MIT License.
+
+## 👨‍💻 Author
+
+Created by [Dorian TERBAH](https://github.com/dterbah)
