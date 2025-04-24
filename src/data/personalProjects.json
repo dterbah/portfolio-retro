@@ -1,0 +1,66 @@
+{
+  "categories": [
+    {
+      "name": "Golang",
+      "projects": [
+        {
+          "title": "Go Data Structure",
+          "description": "Ce projet a pour but de mettre à disposition une collection de structure de données complexes en Go.",
+          "link": "https://github.com/dterbah/gods",
+          "date": "Juin 2024",
+          "skills": ["Go", "CI/CD"]
+        },
+        {
+          "title": "Go Package Manager",
+          "description": "Ce projet est inspriré de NPM. Il permet de créer, manager et mettre à jour facilement un projet en Go.",
+          "link": "https://github.com/dterbah/gopm",
+          "date": "Juillet 2024",
+          "skills": ["Go", "CI/CD"]
+        },
+        {
+          "title": "Go-Test-Gen",
+          "description": "Il s'agit d'un générateur de templates de tests pour un fichier/projet écrit en Go.",
+          "link": "https://github.com/dterbah/go-test-gen",
+          "date": "Juin 2024",
+          "skills": ["Go", "CI/CD"]
+        },
+        {
+          "title": "Go-Logic",
+          "description": "Ce projet permet de résoudre des expressions booléennes, de les simplifier, de générer un graphe décrivant l'expression et des tables de vérités.",
+          "link": "https://github.com/dterbah/go-logic?tab=readme-ov-file",
+          "date": "Juillet 2024",
+          "skills": ["Go", "CI/CD"]
+        }
+      ]
+    },
+    {
+      "name": "Web",
+      "projects": [
+        {
+          "title": "Konect",
+          "description": "Ce logiciel de NoCode permet d'assembler des briques pour créer des processus complexes.",
+          "link": "https://github.com/KonectTeam/konect",
+          "date": "Avril 2023 - Juillet 2023",
+          "skills": ["Typescript", "VueJS", "Python", "Flask", "Rest"],
+          "webLink": "https://konect-app.netlify.app/"
+        },
+        {
+          "title": "Data-France-Visualization",
+          "description": "Application qui permet de visualiser des données concernant la France (consommation, prix, ...).",
+          "link": "https://github.com/dterbah/Data-France-Visualization",
+          "date": "Mars 2023",
+          "skills": ["Typescript", "VueJS", "Rest"],
+          "webLink": "https://data-france-visualization.netlify.app/"
+        },
+        {
+          "title": "Pokedex",
+          "description": "Application listant des pokemons avec leurs statistiques, un simulateur d'achats d'objets et un mini quizz.",
+          "link": "https://github.com/dterbah/pokedex",
+          "date": "Octobre 2024",
+          "skills": ["Typescript", "Angular", "Rest"],
+          "webLink": "https://dterbah-pokedexv2.netlify.app"
+        }
+      ]
+    }
+  ]
+} 

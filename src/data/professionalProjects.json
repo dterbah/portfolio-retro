@@ -1,0 +1,55 @@
+{
+  "projects": [
+    {
+      "company": "Heva",
+      "projects": [
+        {
+          "title": "Osiris",
+          "description": "Simulation de contribution à la clause de sauvegarde d'entreprises vendant du matériel médical pour le SNITEM.",
+          "date": "Septembre 2023 - Février 2024",
+          "skills": ["React", "Typescript", "Redux", "PostgreSQL"]
+        },
+        {
+          "title": "Apollo",
+          "description": "Dashboard de visualisation de données pour l'entreprise Novartis, qui permet de voir et interpréter des suivis médicaux de patients.",
+          "date": "Février 2024 - Juillet 2024",
+          "skills": ["React", "Typescript", "Redux", "Python", "Minio", "FastAPI"]
+        }
+      ]
+    },
+    {
+      "company": "Gutenberg Technology",
+      "projects": [
+        {
+          "title": "MEFio",
+          "description": "Plateforme de gestion de contenu collaboratif",
+          "date": "Septembre 2022 - Septembre 2023",
+          "skills": ["Typescript", "React", "Angular", "Node"]
+        }
+      ]
+    },
+    {
+      "company": "Ciril Group",
+      "projects": [
+        {
+          "title": "Toolkit E2E",
+          "description": "Outil permettant de faciliter le développement de tests end-to-end",
+          "date": "Septembre 2019 - Septembre 2020",
+          "skills": ["Typescript", "PostgreSQL"]
+        },
+        {
+          "title": "Système de logging",
+          "description": "Outil de logging créé pour les développeurs de Ciril GROUP pour simplifier la recherche de problèmes.",
+          "date": "Septembre 2020 - Septembre 2021",
+          "skills": ["C", "Java"]
+        },
+        {
+          "title": "Système de sondes",
+          "description": "Outils qui analyse les applications clientes pour prévenir de potentielles pannes ou crashs.",
+          "date": "Septembre 2021 - Septembre 2022",
+          "skills": ["C", "Java"]
+        }
+      ]
+    }
+  ]
+} 

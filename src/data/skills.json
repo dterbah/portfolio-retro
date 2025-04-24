@@ -1,0 +1,38 @@
+{
+  "categories": [
+    {
+      "name": "Frontend",
+      "skills": [
+        { "name": "React", "level": 5 },
+        { "name": "TypeScript", "level": 5 },
+        { "name": "VueJS", "level": 4 },
+        { "name": "Angular", "level": 3 }
+      ]
+    },
+    {
+      "name": "Backend",
+      "skills": [
+        { "name": "Go", "level": 5 },
+        { "name": "Python", "level": 4 },
+        { "name": "Node.js", "level": 4 },
+        { "name": "Java", "level": 3 },
+        { "name": "C", "level": 3 }
+      ]
+    },
+    {
+      "name": "Base de données",
+      "skills": [
+        { "name": "PostgreSQL", "level": 4 },
+        { "name": "MongoDB", "level": 3 }
+      ]
+    },
+    {
+      "name": "DevOps",
+      "skills": [
+        { "name": "CI/CD", "level": 4 },
+        { "name": "Docker", "level": 3 },
+        { "name": "Kubernetes", "level": 2 }
+      ]
+    }
+  ]
+} 
