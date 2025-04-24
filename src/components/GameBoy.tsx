@@ -19,6 +19,7 @@ const GameBoy = () => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [currentSection, setCurrentSection] = useState('');
+  const [currentGame, setCurrentGame] = useState('');
   const [isPowered, setIsPowered] = useState(true);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [batteryLevel, setBatteryLevel] = useState(100);
@@ -253,68 +254,50 @@ const GameBoy = () => {
     );
   };
 
+  const handleGameSelect = (game: string) => {
+    setCurrentGame(game);
+  };
+
   const renderSection = () => {
-    if (!isPowered) {
+    if (!isPowered || loading) return null;
+
+    if (currentSection === '') {
       return (
-        <div className="screen-off">
-          <div className="power-off-text">POWER OFF</div>
+        <div className="menu">
+          {menuItems.map((item, index) => (
+            <div
+              key={item.id}
+              className={`menu-item ${index === selectedIndex ? 'selected' : ''}`}
+              onClick={() => {
+                setSelectedIndex(index);
+                setCurrentSection(item.id);
+              }}
+            >
+              {item.label}
+            </div>
+          ))}
         </div>
       );
     }
 
-    return (
-      <>
-        {renderStatusBar()}
-        <div className="content">
-          <div className="portfolio-title">PORTFOLIO</div>
-          {(() => {
-            if (currentSection === 'quests') {
-              return <Quests quests={quests} />;
-            }
-
-            if (currentSection === '') {
-              return (
-                <div className="menu">
-                  {menuItems.map((item, index) => (
-                    <div
-                      key={item.id}
-                      className={`menu-item ${index === selectedIndex ? 'selected' : ''}`}
-                      onClick={() => {
-                        setSelectedIndex(index);
-                        setCurrentSection(item.id);
-                      }}
-                    >
-                      {item.label}
-                    </div>
-                  ))}
-                </div>
-              );
-            }
-
-            switch (currentSection) {
-              case 'pro':
-                return <ProfessionalProjects />;
-              case 'perso':
-                return <PersonalProjects />;
-              case 'skills':
-                return <Skills />;
-              case 'career':
-                return <Career onBack={() => setCurrentSection('')} />;
-              case 'games':
-                return <Games currentGame="" onBack={() => setCurrentSection('games')} />;
-              case 'snake':
-                return <Games currentGame="snake" onBack={() => setCurrentSection('games')} />;
-              case 'pong':
-                return <Games currentGame="pong" onBack={() => setCurrentSection('games')} />;
-              case 'catch-the-dot':
-                return <Games currentGame="catch-the-dot" onBack={() => setCurrentSection('games')} />;
-              case 'contact':
-                return <Contact />;
-            }
-          })()}
-        </div>
-      </>
-    );
+    switch (currentSection) {
+      case 'pro':
+        return <ProfessionalProjects />;
+      case 'perso':
+        return <PersonalProjects />;
+      case 'skills':
+        return <Skills />;
+      case 'career':
+        return <Career onBack={() => setCurrentSection('')} />;
+      case 'games':
+        return <Games currentGame={currentGame} onBack={() => setCurrentGame('')} onGameSelect={handleGameSelect} />;
+      case 'contact':
+        return <Contact />;
+      case 'quests':
+        return <Quests quests={quests} />;
+      default:
+        return null;
+    }
   };
 
   return (
@@ -342,7 +325,13 @@ const GameBoy = () => {
             </div>
           </div>
         ) : (
-          renderSection()
+          <>
+            {renderStatusBar()}
+            <div className="content">
+              <div className="portfolio-title">PORTFOLIO</div>
+              {renderSection()}
+            </div>
+          </>
         )}
       </div>
       <div className="controls">

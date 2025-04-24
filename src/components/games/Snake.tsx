@@ -39,7 +39,7 @@ const Snake = ({ onBack }: SnakeProps) => {
           }
 
           // Vérifier les collisions avec les murs
-          if (head.x < 0 || head.x >= 20 || head.y < 0 || head.y >= 15) {
+          if (head.x < 0 || head.x >= 20 || head.y < 0 || head.y >= 20) {
             setGameOver(true);
             return prevSnake;
           }
@@ -60,7 +60,7 @@ const Snake = ({ onBack }: SnakeProps) => {
             do {
               newFood = {
                 x: Math.floor(Math.random() * 20),
-                y: Math.floor(Math.random() * 15)
+                y: Math.floor(Math.random() * 20)
               };
             } while (newSnake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
             setFood(newFood);

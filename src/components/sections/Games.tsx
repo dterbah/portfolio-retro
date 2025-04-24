@@ -5,9 +5,10 @@ import CatchTheDot from '../games/CatchTheDot';
 interface GamesProps {
   currentGame: string;
   onBack: () => void;
+  onGameSelect: (game: string) => void;
 }
 
-const Games = ({ currentGame, onBack }: GamesProps) => {
+const Games = ({ currentGame, onBack, onGameSelect }: GamesProps) => {
   if (currentGame === 'snake') {
     return <Snake onBack={onBack} />;
   }
@@ -28,7 +29,7 @@ const Games = ({ currentGame, onBack }: GamesProps) => {
           <div className="game-controls">
             <span>↑↓←→</span>
           </div>
-          <button className="game-button" onClick={() => onBack()}>
+          <button className="game-button" onClick={() => onGameSelect('snake')}>
             Jouer
           </button>
         </div>
@@ -38,7 +39,7 @@ const Games = ({ currentGame, onBack }: GamesProps) => {
           <div className="game-controls">
             <span>↑↓</span>
           </div>
-          <button className="game-button" onClick={() => onBack()}>
+          <button className="game-button" onClick={() => onGameSelect('pong')}>
             Jouer
           </button>
         </div>
@@ -48,7 +49,7 @@ const Games = ({ currentGame, onBack }: GamesProps) => {
           <div className="game-controls">
             <span>↑↓←→</span>
           </div>
-          <button className="game-button" onClick={() => onBack()}>
+          <button className="game-button" onClick={() => onGameSelect('catch-the-dot')}>
             Jouer
           </button>
         </div>
